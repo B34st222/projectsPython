@@ -1,3 +1,16 @@
+"""
+differencier player 1 de 2
+
+demander des noms
+
+couleurs
+
+clear terminal
+
+"""
+
+
+
 import random
 
 

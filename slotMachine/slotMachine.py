@@ -1,5 +1,5 @@
 import random
-import emoji
+#import emoji
 
 MAX_LINE = 3
 MAX_BET = 100
