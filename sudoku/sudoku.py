@@ -26,8 +26,44 @@ def check_line(grid):
 
 def check_col(grid):
     pointer = 0
+    gridcol = [0] * 9
+    i = 0
+    j = 0
+    while True:
 
-    for _ in
+        gridcol[i] = grid[pointer]
+        print(gridcol)
+        pointer += 9
+        i += 1
+
+        if i == 9:
+            is_distinct = len(set(gridcol))
+            if is_distinct != 9:
+                print("Error in col")
+                break
+
+            j += 1
+            if j == 9:
+                break
+
+            i = 0
+            pointer = j
+
+def check_sqare(grid):
+    pointer = 0
+    gridsqare = [0] * 9
+    i = 0
+    j = 0
+    k = 0
 
 
-check_line(grid)
+    while True:
+        gridsqare[i] = grid[pointer]
+        if (i +1) % 3 == 0:
+            pointer += 7
+
+
+
+
+
+check_col(grid)
