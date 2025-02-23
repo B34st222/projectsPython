@@ -6,7 +6,6 @@ CLEAR_AND_RETURN = "\033[H"
 
 tempsPause = 1
 tempsEtude = 1
-
 tempsPauseSecondes = tempsPause * 60
 tempsEtudeSecondes = tempsEtude * 60
 
