@@ -1,45 +1,48 @@
-import time
+from time import sleep
 
 CLEAR = "\033[2J"
 CLEAR_AND_RETURN = "\033[H"
 
-minWork = 25
-minOff = 5
+t1 = 25
+t2 = 5
 
-secondWork = minWork * 60
-secondOff = minOff * 60
+def timer(t):
+    tmin = int(t)
+    tsec = int(t * 60 % 60)
 
-def working_time(workTime):
-    time_elapsed = 0
-
-    print(CLEAR)
-    while time_elapsed < workTime:
-        time.sleep(1)
-        time_elapsed += 1
-
-        time_left = workTime - time_elapsed
-        minutes_left = time_left // 60
-        seconds_left = time_left % 60
-
-        print(f"{CLEAR_AND_RETURN}Time left: {minutes_left:02d}:{seconds_left:02d}")
-
-
-
-def main(WorkTime, BreakTime):
+    
     while True:
+        
+        sleep(1)
+        print(CLEAR)
+        tsec -= 1
 
-        working_time(WorkTime)
+        if tsec == -1:
+            tsec = 59
+            tmin -= 1
 
-        pizzaTime = input("Its break time ! enter to continue (q to quit)")
-        if pizzaTime == "q":
+        if tmin == -1:
             break
 
-        working_time(BreakTime)
-        pizzaTime = input("Its work time ! enter to continue")
-        if pizzaTime == "q":
+        print(f"{CLEAR_AND_RETURN}{tmin} : {tsec}")    
+        
+
+
+
+def main(t1, t2):
+    
+    while True:
+        timer(t1)
+        print("Cest le temps dune pause")
+        pause=input("Q pour quitter, enter pour continuer")
+        if ("q" or "Q") in pause:
             break
 
 
+        timer(t2)
+        print("Cest le temps de travailler")
+        pause=input("Q pour quitter, enter pour continuer\n")
+        if ("q" or "Q") in pause:
+            break
 
-
-main(secondWork, secondOff)
+main(t1, t2)
